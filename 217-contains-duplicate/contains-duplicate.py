@@ -1,15 +1,19 @@
 class Solution(object):
-    #attempt - 1
+    #attempt 2 through sets
     def containsDuplicate(self, nums):
         """
         :type nums: List[int]
         :rtype: bool
         """
-        #sort the array
-        nums.sort()
-        #check if adjacents are equal
-        for i in range(len(nums) - 1):
-            if nums[i]==nums[i+1]:
+        #sets have O(1) lookup time
+        #start with an empty set 
+        match = set()
+        #then iterate over every value
+        for num in nums:
+            if num in match:
                 return True
+            else:
+                match.add(num)
+        
         return False
         
